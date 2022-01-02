@@ -29,5 +29,6 @@ export default {
   align-items: center;
   max-width: 900px;
   margin: 0 auto;
+  padding: $padding * 2;
 }
 </style>
