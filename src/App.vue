@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    {{ msg }}
     <vMainWrapper />
   </div>
 </template>
@@ -12,9 +11,6 @@ export default {
   components: {
     vMainWrapper,
   },
-  data: () => ({
-    msg: "Hello world",
-  }),
 };
 </script>
 

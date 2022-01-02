@@ -1,6 +1,5 @@
 <template>
   <div class="v-main-wrapper">
-    <p>{{ title }}</p>
     <VCatalog />
     <VCart />
   </div>
@@ -15,9 +14,7 @@ export default {
     VCatalog,
     VCart,
   },
-  data: () => ({
-    title: "Main wrapper",
-  }),
+  data: () => ({}),
 };
 </script>
 
