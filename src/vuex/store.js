@@ -22,7 +22,21 @@ let store = new Vuex.Store({
       return (state.products = products);
     },
     SET_CART: (state, product) => {
-      return state.cart.push(product);
+      if (state.cart.length) {
+        let isProductExists = false;
+
+        state.cart.map((item) => {
+          if (item.article === product.article) {
+            isProductExists = true;
+            item.quantity++;
+          }
+        });
+        if (!isProductExists) {
+          state.cart.push(product);
+        }
+      } else {
+        state.cart.push(product);
+      }
     },
     REMOVE_FROM_CART: (state, index) => {
       return state.cart.splice(index, 1);
