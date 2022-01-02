@@ -6,6 +6,7 @@
         v-for="product in products"
         :key="product.article"
         :product_data="product"
+        @sendArticle="getArticle"
       />
     </div>
   </div>
@@ -69,6 +70,11 @@ export default {
       },
     ],
   }),
+  methods: {
+    getArticle(article) {
+      console.log(article);
+    },
+  },
 };
 </script>
 
