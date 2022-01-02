@@ -11,8 +11,9 @@
       <p>{{ cart_item_data.article }}</p>
     </div>
 
-    <div class="v-cart-item__quantity"></div>
-    <button class="btn">Delete</button>
+    <div class="v-cart-item__quantity">
+      <p>Qty: {{ cart_item_data.quantity }}</p>
+    </div>
   </div>
 </template>
 
@@ -24,6 +25,10 @@ export default {
       type: Object,
       default: () => ({}),
     },
+  },
+
+  mounted() {
+    this.$set(this.cart_item_data, "quantity", 1);
   },
 };
 </script>
