@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="v-main-wrapper">
     <p>{{ title }}</p>
     <VCatalog />
     <VCart />
@@ -23,12 +23,7 @@ export default {
 
 <style lang="scss">
 .v-main-wrapper {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
   max-width: 900px;
   margin: 0 auto;
-  padding: $padding * 2;
 }
 </style>
