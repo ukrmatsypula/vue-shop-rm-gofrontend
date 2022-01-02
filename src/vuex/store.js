@@ -24,6 +24,9 @@ let store = new Vuex.Store({
     SET_CART: (state, product) => {
       return state.cart.push(product);
     },
+    REMOVE_FROM_CART: (state, index) => {
+      return state.cart.splice(index, 1);
+    },
   },
   actions: {
     async GET_PRODUCTS_FROM_API({ commit }) {
@@ -43,6 +46,9 @@ let store = new Vuex.Store({
 
     ADD_TO_CART({ commit }, product) {
       commit("SET_CART", product);
+    },
+    DELETE_FROM_CART({ commit }, index) {
+      commit("REMOVE_FROM_CART", index);
     },
   },
   modules: {},
