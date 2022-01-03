@@ -11,10 +11,12 @@
       :key="item.article"
       :cart_item_data="item"
       @deleteFromCart="deleteFromCart(index)"
+      @increment="increment(index)"
+      @decrement="decrement(index)"
     />
 
-    <div class="v-cart__total">
-      <p class="v-cart__name">Total: {{ this.cartTotalBalance || 0 }} UAH</p>
+    <div class="v-cart__total" v-if="cartTotalBalance">
+      <p class="v-cart__name">Total: {{ this.cartTotalBalance }} UAH</p>
     </div>
   </div>
 </template>
@@ -38,17 +40,29 @@ export default {
     cartTotalBalance() {
       let result;
 
-      this.cart_data.reduce((acc, product) => {
-        result = acc += product.price * product.quantity;
-        return acc;
-      }, 0);
+      if (this.cart_data.length) {
+        result = this.cart_data.reduce((acc, product) => {
+          acc += product.price * product.quantity;
+          return acc;
+        }, 0);
+      }
       return result;
     },
   },
   methods: {
-    ...mapActions(["DELETE_FROM_CART"]),
+    ...mapActions([
+      "DELETE_FROM_CART",
+      "INCREMENT_ITEM_CART",
+      "DECREMENT_ITEM_CART",
+    ]),
     deleteFromCart(index) {
       this.DELETE_FROM_CART(index);
+    },
+    increment(index) {
+      this.INCREMENT_ITEM_CART(index);
+    },
+    decrement(index) {
+      this.DECREMENT_ITEM_CART(index);
     },
   },
 };
