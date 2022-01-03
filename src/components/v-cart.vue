@@ -12,6 +12,10 @@
       :cart_item_data="item"
       @deleteFromCart="deleteFromCart(index)"
     />
+
+    <div class="v-cart__total">
+      <p class="v-cart__name">Total: {{ this.cartTotalBalance || 0 }} UAH</p>
+    </div>
   </div>
 </template>
 
@@ -30,6 +34,17 @@ export default {
       default: () => [],
     },
   },
+  computed: {
+    cartTotalBalance() {
+      let result;
+
+      this.cart_data.reduce((acc, product) => {
+        result = acc += product.price * product.quantity;
+        return acc;
+      }, 0);
+      return result;
+    },
+  },
   methods: {
     ...mapActions(["DELETE_FROM_CART"]),
     deleteFromCart(index) {
@@ -39,4 +54,26 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss">
+.v-cart {
+  margin-bottom: 100px;
+
+  &__total {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: $padding * 2 $padding * 3;
+    color: #fff;
+    background: lightgreen;
+    font-size: 22px;
+  }
+
+  &__name {
+    margin-right: $margin * 2;
+  }
+}
+</style>
