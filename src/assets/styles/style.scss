@@ -8,4 +8,13 @@
 
 .btn {
   border-radius: $radius;
+  padding: $padding $padding * 2;
+  background-color: #26ae68;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: lighten(#26ae68, 5%);
+  }
 }
