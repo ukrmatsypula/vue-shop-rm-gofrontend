@@ -23,7 +23,7 @@
 
 <script>
 import { mapActions } from "vuex";
-import vCartItem from "@/components/v-cart-item.vue";
+import vCartItem from "@/components/cart/v-cart-item.vue";
 
 export default {
   name: "v-cart",
