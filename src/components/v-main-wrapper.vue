@@ -6,11 +6,14 @@
 
     <vSelect :options="options" @select="optionSelected" :selected="selected" />
     <h2>Selected value: {{ selected }}</h2>
+
+    <vBtn @click="clickBtn" :disabled="false"></vBtn>
   </div>
 </template>
 
 <script>
 import vSelect from "@/components/v-select.vue";
+import vBtn from '@/components/v-btn.vue';
 
 export default {
   name: "v-main-wrapper",
@@ -25,11 +28,15 @@ export default {
   }),
   components: {
     vSelect,
+    vBtn,
   },
   methods: {
     optionSelected(selectedItem) {
       this.selected = selectedItem.name;
     },
+    clickBtn() {
+      console.log('click')
+    }
   },
 };
 </script>
