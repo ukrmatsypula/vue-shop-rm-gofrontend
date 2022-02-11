@@ -7,11 +7,18 @@
     <vSelect :options="options" @select="optionSelected" :selected="selected" />
     <h2>Selected value: {{ selected }}</h2>
 
-    <vBtn @click="clickBtn" :disabled="false"></vBtn>
+    <vBtn
+      @click="clickBtn"
+      :disabled="false"
+      :error="true"
+      :success="true"
+      prependIcon="cancel"
+      appendIcon="edit" />
   </div>
 </template>
 
 <script>
+
 import vSelect from "@/components/v-select.vue";
 import vBtn from '@/components/v-btn.vue';
 
